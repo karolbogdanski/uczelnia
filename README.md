@@ -1,0 +1,2 @@
+# uczelnia
+pliki na IO
