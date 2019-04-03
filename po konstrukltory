@@ -1,0 +1,126 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class TOsoba {
+
+public:
+	string imie;
+	int wiek;
+	
+	TOsoba() {
+		cout << "Hej to ja konstruktor domyślny." << endl;
+	}
+	TOsoba(const TOsoba &osoba) {
+		imie = osoba.imie;
+		wiek = osoba.wiek;
+		cout << "konstruktor kopiujacy\n";
+	}
+	void wypisz(TOsoba osoba); // zadanie 5 definicja na samym dole programu
+};
+
+class TStudent {
+
+public:
+	string imie;
+	string nazwisko;
+	int rok;
+	int grupa;
+
+
+	TStudent() {
+		cout << "To znowu ja - konstruktor domyślny. Witaj na moim bagnie!" << endl;
+	}
+
+	TStudent(string i, string n, int r, int g) {
+		this->imie = i;
+		this->nazwisko = n;
+		this->rok = r;
+		this->grupa = g;
+	}
+
+	void wypisz(TStudent student) {
+		cout << student.imie << endl << student.nazwisko << endl << "Rok: " << student.rok << endl << "Grupa: " << student.grupa << endl;
+	}
+};
+
+class TFigura {
+
+public:
+	int wysokosc;
+	int szerokosc;
+	int dlugosc;
+
+	TFigura() {
+		cout << "Yup. Default costructor here. Again." << endl;
+			
+	}
+
+	TFigura(int w) {
+		cout << "Wysokość: " << w << endl;
+	}
+	TFigura(int s, int d) {
+		cout << "Szerokość: " << s << endl << "Długość: " << d << endl;
+
+	}
+
+};
+
+int main() {
+
+	/*
+	TOsoba Karol;			//zadanie 1
+	Karol.imie = "Karol";
+	Karol.wiek = 19;
+
+	TOsoba Malwina;
+
+	TOsoba *wM = &Malwina;
+	cin >> wM->imie;
+	cout << endl;
+	cin >> wM->wiek;
+	*/
+
+	/*
+	TStudent s1("Karol", "Bogdański", 1, 1);  //zadanie 2
+	TStudent s2("Stachu", "Jones", 3, 5);
+	TStudent s3("Jadzia", "Styrta", 2, 3);
+	TStudent s4("TommyLee", "Jones", 7, 4);
+
+	s1.wypisz(s1);
+	s2.wypisz(s2);
+	s3.wypisz(s3);
+	s4.wypisz(s4);
+	
+	TStudent s5;  //zadanie 3
+	s5.wypisz(s5);
+	*/
+
+	/*
+	TFigura f1;		//zadanie 4
+	TFigura f2(1);
+	TFigura f3(2, 3);
+	*/
+
+	TOsoba osoba1;	//zadanie 5
+	TOsoba *p = &osoba1;
+
+	cin >> p->imie;
+	cin >> p->wiek;
+
+	TOsoba(p);
+
+	TOsoba osoba2(TOsoba(p));
+
+
+	system("PAUSE");
+	return 0;
+}
+
+
+
+void TOsoba::wypisz(TOsoba osoba) {
+	{
+		cout << osoba.imie << endl << osoba.wiek << endl;
+	}
+}
