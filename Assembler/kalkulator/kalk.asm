@@ -113,12 +113,12 @@ drukuj:
 	jmp main
 	
 drukuj_div:
-	
+	mov rcx, rax
 	mov rdi, napis_div
 	mov esi, [x]
 	mov r8, [y]
 	xchg rdx, r8
-	mov rcx, rax
+	
 	xor rax, rax
 	call printf
 	;jmp koniec
